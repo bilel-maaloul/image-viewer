@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleshhet.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Sliders</h1>
+    <nav>
+        <a href="#" onclick="toggleToolbar()">Barre d'outils</a>
+    </nav>
+    <div>
+        <img id="mainImage" width="300" height="300" alt="current">
+    </div>
+    <div>
+        <img class="miniature" src="img/beautiful-green-field-scenery-picjumbo-com.jpg" alt="first">
+        <img class="miniature" src="img/butterfly-close-up-picjumbo-com.jpg" alt="second">
+        <img class="miniature" src="img/california-sunset-palms-picjumbo-com.jpg" alt="third">
+        <img class="miniature" src="img/gangster-french-bulldog-with-sunglasses-sitting-at-city-cafe-picjumbo-com.jpg" alt="fourth">
+        <img class="miniature" src="img/macbook-on-wooden-desk-with-room-for-text-picjumbo-com.jpg" alt="fifth">
+    </div>
+    <div class="toolbar">
+        <button onclick="previousImage()"><i class="fas fa-arrow-left"></i></button>
+        <button onclick="toggleCarousel()"><i class="fas fa-play"></i></button>
+        <button onclick="nextImage()"><i class="fas fa-arrow-right"></i></button>
+        <button onclick="randomImage()"><i class="fas fa-random"></i></button>
+    </div>
+    <div class="default-buttons">
+        <button onclick="previousImage()">Previous</button>
+        <button onclick="nextImage()">Next</button>
+    </div>
+</body>
+</html>
