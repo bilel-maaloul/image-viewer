@@ -10,29 +10,28 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <h1>Sliders</h1>
     <nav>
-        <a href="#" onclick="toggleToolbar()">Barre d'outils</a>
+        <a href="#" onclick="toggleToolbar()" id="toolbarToggle" class="fas fa-arrow-right">Barre d'outils</a>
     </nav>
-    <div>
-        <img id="mainImage" width="300" height="300" alt="current">
-    </div>
-    <div>
-        <img class="miniature" src="img/beautiful-green-field-scenery-picjumbo-com.jpg" alt="first">
-        <img class="miniature" src="img/butterfly-close-up-picjumbo-com.jpg" alt="second">
-        <img class="miniature" src="img/california-sunset-palms-picjumbo-com.jpg" alt="third">
-        <img class="miniature" src="img/gangster-french-bulldog-with-sunglasses-sitting-at-city-cafe-picjumbo-com.jpg" alt="fourth">
-        <img class="miniature" src="img/macbook-on-wooden-desk-with-room-for-text-picjumbo-com.jpg" alt="fifth">
-    </div>
-    <div class="toolbar">
+    
+     <div class="toolbar">
         <button onclick="previousImage()"><i class="fas fa-arrow-left"></i></button>
         <button onclick="toggleCarousel()"><i class="fas fa-play"></i></button>
         <button onclick="nextImage()"><i class="fas fa-arrow-right"></i></button>
         <button onclick="randomImage()"><i class="fas fa-random"></i></button>
     </div>
-    <div class="default-buttons">
-        <button onclick="previousImage()">Previous</button>
-        <button onclick="nextImage()">Next</button>
+    <div id="mainImageContainer">
+        <img id="mainImage" src="img/your-image.png" alt="current">
     </div>
+    <div class="thumbnail-container">
+        <button class="nav-button" onclick="previousImage()"><< page précédente</button>
+        <img class="miniature" src="img/beautiful-green-field-scenery-picjumbo-com.jpg" alt="first">
+        <img class="miniature" src="img/butterfly-close-up-picjumbo-com.jpg" alt="second">
+        <img class="miniature" src="img/california-sunset-palms-picjumbo-com.jpg" alt="third">
+        <img class="miniature" src="img/gangster-french-bulldog-with-sunglasses-sitting-at-city-cafe-picjumbo-com.jpg" alt="fourth">
+        <img class="miniature" src="img/macbook-on-wooden-desk-with-room-for-text-picjumbo-com.jpg" alt="fifth">
+        <button class="nav-button" onclick="nextImage()">  Page suivante >> </button>
+    </div>
+   
 </body>
 </html>

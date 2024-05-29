@@ -2,6 +2,8 @@ var images = document.getElementsByClassName('miniature');
 var currentIndex = 0;
 var carouselInterval;
 
+
+
 function selectImage(index) {
     var selected = document.querySelector('.selected');
     if (selected) selected.classList.remove('selected');
@@ -33,7 +35,7 @@ function randomImage() {
 
 function toggleToolbar() {
     var toolbar = document.querySelector('.toolbar');
-    var defaultButtons = document.querySelector('.default-buttons');
+    var defaultButtons = document.querySelector('.thumbnail-container');
     var thumbnails = document.querySelectorAll('.miniature');
     
     
@@ -55,13 +57,25 @@ function toggleToolbar() {
         });
     } else {
         toolbar.style.display = 'none';
-        defaultButtons.style.display = 'block';
+        defaultButtons.style.display = 'flex';
         thumbnails.forEach(function(thumbnail) {
    
             thumbnail.style.display = thumbnail.dataset.initialDisplay;
         });
     }
+    var toolbarToggle = document.getElementById("toolbarToggle");
+
+    // Toggle the class
+    if (toolbarToggle.classList.contains("fa-arrow-down")) {
+        toolbarToggle.classList.remove("fa-arrow-down");
+        toolbarToggle.classList.add("fa-arrow-right");
+    } else {
+        toolbarToggle.classList.remove("fa-arrow-right");
+        toolbarToggle.classList.add("fa-arrow-down");
+    }
 }
+    
+
 
 function toggleCarousel() {
     var button = document.querySelector('.default-buttons button:nth-child(2)');

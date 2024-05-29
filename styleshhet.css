@@ -1,6 +1,6 @@
 body {
     font-family: 'Open Sans', sans-serif;
-    background: linear-gradient(to right, #74ebd5, #ACB6E5);
+    background-color: #f0f0f0;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -9,28 +9,52 @@ body {
     height: 100vh;
     margin: 0;
     padding: 20px;
+    overflow: hidden;
 }
 
 h1 {
     color: #444;
     margin-bottom: 20px;
+    font-size: 2.5em; /* Increased font size */
 }
 
 nav {
     margin-bottom: 20px;
 }
 
+#mainImageContainer {
+    position: relative;
+    width: 50vw; /* Adjusted size to be responsive */
+    height: 50vw; /* Adjusted size to be responsive */
+    margin-bottom: 30px; /* Increased margin to separate from thumbnails */
+    margin-left: 50px;
+}
+
 #mainImage {
+    width: 90%;
+    height: 90%;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
+    transform: rotate(-5deg);
+    border: 10px solid white;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.thumbnail-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    margin-bottom: 30px;
 }
 
 .miniature {
-    width: 80px;
-    height: 80px;
+    width: 8vw; /* Reduced size to be smaller */
+    height: 8vw; /* Reduced size to be smaller */
+    max-width: 100px; /* Set a max-width for even smaller screens */
+    max-height: 100px; /* Set a max-height for even smaller screens */
     border-radius: 5px;
-    margin-right: 10px;
+    margin: 0 10px 20px 10px; /* Increased bottom margin for spacing */
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -39,34 +63,38 @@ nav {
     transform: scale(1.1);
 }
 
-.toolbar,
-.default-buttons {
-    display: flex;
-    justify-content: center;
-}
-
-button {
+.nav-button {
     cursor: pointer;
-    padding: 10px 15px;
+    padding: 15px 20px; /* Increased padding */
+    font-size: 1.2em; /* Increased font size */
     border: none;
-    background-color: #444;
-    color: white;
+    background-color: transparent; /* Set background color to transparent */
+    color: black;
     border-radius: 5px;
-    margin: 0 10px;
+    margin: 0 20px; /* Increased margin for better spacing */
     transition: background-color 0.3s ease;
+    border: 2px solid black; /* Add border for better visibility */
+    font-weight: bolder;
 }
 
-button:hover {
-    background-color: #555;
+.nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white on hover */
 }
 
 .toolbar {
     display: none;
+    margin-bottom: 50px;
+   
 }
 
-.default-buttons {
-    display: flex; 
-}
 .hidden {
     display: none;
+}
+
+nav{
+    margin-right: 90%;
+}
+.toolbar button {
+    display: inline-block;
+    margin: 0 10px;
 }
