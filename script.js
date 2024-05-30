@@ -53,7 +53,7 @@ function toggleToolbar() {
     
     var toolbarToggle = document.getElementById("toolbarToggle");
 
-    // Toggle the class
+  
     if (toolbarToggle.classList.contains("fa-arrow-down")) {
         toolbarToggle.classList.remove("fa-arrow-down");
         toolbarToggle.classList.add("fa-arrow-right");
@@ -90,7 +90,7 @@ function toggleRandomImageLoop() {
         button.innerHTML = '<i class="fas fa-random"></i>';
         randomImageInterval = null;
     } else {
-        randomImageInterval = setInterval(randomImage, 2000); // Change image every 2 seconds
+        randomImageInterval = setInterval(randomImage, 1500); 
         button.innerHTML = '<i class="fas fa-stop"></i>';
     }
 }
@@ -108,7 +108,6 @@ document.addEventListener('keydown', function(event) {
 window.onload = function() {
     selectImage(currentIndex); 
 
-    // Add click event listeners to miniature images
     for (let i = 0; i < images.length; i++) {
         images[i].addEventListener('click', function() {
             selectImage(i);
