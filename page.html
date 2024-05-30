@@ -8,20 +8,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styleshhet.css">
     <script src="script.js"></script>
+    <script src="Util.js"></script>
 </head>
 <body>
     <nav>
         <a href="#" onclick="toggleToolbar()" id="toolbarToggle" class="fas fa-arrow-right">Barre d'outils</a>
     </nav>
     
-     <div class="toolbar">
+    <div class="toolbar">
         <button onclick="previousImage()"><i class="fas fa-arrow-left"></i></button>
         <button onclick="toggleCarousel()"><i class="fas fa-play"></i></button>
         <button onclick="nextImage()"><i class="fas fa-arrow-right"></i></button>
-        <button onclick="randomImage()"><i class="fas fa-random"></i></button>
+        <button onclick="toggleRandomImageLoop()"><i class="fas fa-random"></i></button>
     </div>
     <div id="mainImageContainer">
-        <img id="mainImage" src="img/your-image.png" alt="current">
+        <img id="mainImage" src="img/beautiful-green-field-scenery-picjumbo-com.jpg" alt="current">
     </div>
     <div class="thumbnail-container">
         <button class="nav-button" onclick="previousImage()"><< page précédente</button>
@@ -32,6 +33,5 @@
         <img class="miniature" src="img/macbook-on-wooden-desk-with-room-for-text-picjumbo-com.jpg" alt="fifth">
         <button class="nav-button" onclick="nextImage()">  Page suivante >> </button>
     </div>
-   
 </body>
 </html>

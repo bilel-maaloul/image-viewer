@@ -1,8 +1,7 @@
 var images = document.getElementsByClassName('miniature');
 var currentIndex = 0;
 var carouselInterval;
-
-
+var randomImageInterval;
 
 function selectImage(index) {
     var selected = document.querySelector('.selected');
@@ -25,29 +24,18 @@ function previousImage() {
     selectImage(currentIndex);
 }
 
-function randomImage() {
-    var randomIndex;
-    do {
-        randomIndex = Math.floor(Math.random() * images.length);
-    } while (randomIndex === currentIndex);
-    selectImage(randomIndex);
-}
-
 function toggleToolbar() {
     var toolbar = document.querySelector('.toolbar');
     var defaultButtons = document.querySelector('.thumbnail-container');
     var thumbnails = document.querySelectorAll('.miniature');
     
-    
     var isToolbarHidden = toolbar.style.display === 'none' || toolbar.style.display === '';
-
 
     if (!thumbnails[0].dataset.initialDisplay) {
         thumbnails.forEach(function(thumbnail) {
             thumbnail.dataset.initialDisplay = getComputedStyle(thumbnail).display;
         });
     }
-
 
     if (isToolbarHidden) {
         toolbar.style.display = 'block';
@@ -59,10 +47,10 @@ function toggleToolbar() {
         toolbar.style.display = 'none';
         defaultButtons.style.display = 'flex';
         thumbnails.forEach(function(thumbnail) {
-   
             thumbnail.style.display = thumbnail.dataset.initialDisplay;
         });
     }
+    
     var toolbarToggle = document.getElementById("toolbarToggle");
 
     // Toggle the class
@@ -74,18 +62,36 @@ function toggleToolbar() {
         toolbarToggle.classList.add("fa-arrow-down");
     }
 }
-    
-
 
 function toggleCarousel() {
-    var button = document.querySelector('.default-buttons button:nth-child(2)');
+    var button = document.querySelector('.toolbar button:nth-child(2)');
     if (carouselInterval) {
         clearInterval(carouselInterval);
-        button.textContent = 'Next';
+        button.innerHTML = '<i class="fas fa-play"></i>';
         carouselInterval = null;
     } else {
         carouselInterval = setInterval(nextImage, 1500);
-        button.textContent = 'Next';
+        button.innerHTML = '<i class="fas fa-pause"></i>';
+    }
+}
+
+function randomImage() {
+    var randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * images.length);
+    } while (randomIndex === currentIndex);
+    selectImage(randomIndex);
+}
+
+function toggleRandomImageLoop() {
+    var button = document.querySelector('.toolbar button:nth-child(4)');
+    if (randomImageInterval) {
+        clearInterval(randomImageInterval);
+        button.innerHTML = '<i class="fas fa-random"></i>';
+        randomImageInterval = null;
+    } else {
+        randomImageInterval = setInterval(randomImage, 2000); // Change image every 2 seconds
+        button.innerHTML = '<i class="fas fa-stop"></i>';
     }
 }
 
@@ -101,5 +107,12 @@ document.addEventListener('keydown', function(event) {
 
 window.onload = function() {
     selectImage(currentIndex); 
-    document.querySelector('.default-buttons').style.display = 'block';
+
+    // Add click event listeners to miniature images
+    for (let i = 0; i < images.length; i++) {
+        images[i].addEventListener('click', function() {
+            selectImage(i);
+            currentIndex = i;
+        });
+    }
 }
